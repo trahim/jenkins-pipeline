@@ -1,0 +1,32 @@
+createJob(name){
+    gitUrl = "https://github.com/trahim/jenkins-pipeline.git"
+    gitBranch = 'master'
+    step([
+          $class: "ExecuteDslScripts",
+          lookupStrategy: "SEED_JOB",
+          scriptText: """
+                pipelineJob("${name}") {
+                    definition {
+                        cpsScm {
+                            scm {
+                                git {
+                                    remote {
+                                        url("${gitUrl}")
+                                        branch("${gitBranch}")
+                                    }
+                                }
+                            }
+                            scriptPath("${name}")
+                        }
+                    }
+                }
+            """
+    ])
+}
+
+node {
+    params.findAll { it.value != false }.each { create, jobName ->
+        createJob(${jobName})
+        build job: $jobName
+    }
+}
