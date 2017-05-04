@@ -4,7 +4,7 @@ def getJobs(String environment) {
     for (int i=0; i<pipelines.size(); i++) {
         def name = pipelines[i]
         createJob(name, environment)
-        build job: name
+        build job: "${environment}/${name}"
     }
 }
 
