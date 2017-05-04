@@ -14,8 +14,8 @@ def createJob(String name, environment){
             $class: "ExecuteDslScripts",
             lookupStrategy: "SEED_JOB",
             scriptText: """
-                folder("$environment)")
-                pipelineJob("${name}") {
+                folder("$environment")
+                pipelineJob("${environment}/${name}") {
                     definition {
                         cpsScm {
                             scm {
