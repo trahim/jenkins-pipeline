@@ -1,8 +1,10 @@
 def getJobs() {
     def pipelineFile = readProperties file: "pipelines.txt"
     pipelines = pipelineFile['pipelines']
-    pipelines.each {
-        createJob($it)
+    for (int i=0; i<pipelines.size(); i++) {
+        def name = pipelines[i]
+        createJob(name)
+        build job: name
     }
 }
 

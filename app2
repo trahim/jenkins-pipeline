@@ -1,3 +1,4 @@
 node {
-  echo "app2"
+    stage 'test'
+    echo "app2"
 }
