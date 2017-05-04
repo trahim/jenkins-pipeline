@@ -29,3 +29,4 @@ def createJob(name){
             """
     ])
 }
+return this
