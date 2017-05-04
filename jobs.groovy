@@ -9,6 +9,7 @@ def getJobs(String environment) {
 }
 
 def createJob(String name, environment){
+    String gitUrl = 'https://github.com/trahim/jenkins-pipeline.git'
     step([
             $class: "ExecuteDslScripts",
             lookupStrategy: "SEED_JOB",
