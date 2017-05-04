@@ -1,4 +1,4 @@
-getJobs() {
+def getJobs() {
     def pipelineFile = readProperties file: "pipelines.txt"
     pipelines = pipelineFile['pipelines']
     pipelines.each {
@@ -6,7 +6,7 @@ getJobs() {
     }
 }
 
-createJob(name){
+def createJob(name){
     step([
             $class: "ExecuteDslScripts",
             lookupStrategy: "SEED_JOB",
