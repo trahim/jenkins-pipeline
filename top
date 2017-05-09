@@ -1,6 +1,5 @@
 node {
     checkout scm
-    def jobs = load 'jobs.groovy'
     stage 'create and build'
     jobs.getJobs(params.ENVIRONMENT)
 }

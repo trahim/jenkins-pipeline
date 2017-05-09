@@ -1,1 +1,2 @@
 pipelines=app1,app2,db1
+gitUrl=https://github.com/trahim/jenkins-pipeline.git
