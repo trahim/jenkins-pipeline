@@ -1,4 +1,4 @@
-node {
-    stage 'test'
-    echo "app1"
+nodes {
+    count = 1
+    size = "c3.large"
 }
